@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WildWest Roleplay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .video-bg {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover; z-index: -2;
+        }
+        .overlay {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.55); z-index: -1;
+        }
+        .nav-link { transition: all 0.3s ease; }
+        .nav-link:hover { color: #a7c6ec; transform: translateY(-2px); }
+
+        .accordion-header { transition: all 0.3s ease; cursor: pointer; }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        .accordion-content.open { max-height: 3000px; }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+
+    <!-- Video baggrund -->
+    <video class="video-bg" autoplay loop muted playsinline>
+        <source src="background.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+
+    <!-- NAVBAR -->
+    <nav class="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-blue-900">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center relative">
+            <a href="#forside" class="flex items-center gap-3">
+                   <img src="logo.png" alt="Reborn RP" class="h-12 w-auto">
+                <div>
+                </div>
+            </a>
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-10 text-sm font-medium">
+                <a href="#regler" class="nav-link">REGLER</a>
+                <a href="#jobs" class="nav-link">ANSØGNINGER</a>
+            </div>
+            <div class="ml-auto">
+                <a href="https://discord.gg/9Z6nTYphD2" target="_blank" class="flex items-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] px-6 py-2.5 rounded-2xl text-sm font-semibold">
+                    <i class="fab fa-discord"></i>
+                    <span>Join Discord</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="forside" class="min-h-screen flex items-center justify-center relative pt-20">
+        <div class="text-center px-6 max-w-4xl">
+            <h1 class="text-6xl md:text-7xl font-black tracking-tighter mb-6 blue-glow">
+                <br><span class="text-blue-400"></span>
+            </h1>
+            <p class="text-xl md:text-2xl text-zinc-100"></p>
+        </div>
+    </section>
+
+    <!-- REGLER -->
+    <section id="regler" class="py-20 bg-black/70 backdrop-blur-md">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-5xl font-black text-center mb-16">Regler</h2>
+
+            <div class="mb-8">
+                <div onclick="toggleAccordion(this)" class="accordion-header bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-2xl px-8 py-6 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-sm font-bold">§</div>
+                        <div><span class="text-xl font-semibold">Generelle Regler</span><span class="text-zinc-500 text-sm ml-2">· 13 Regler</span></div>
+                    </div>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </div>
+                <div class="accordion-content px-8 pt-2 pb-6 space-y-6 text-zinc-300">
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.1 Respekt</strong><br>
+    Alle medlemmer skal behandle hinanden med respekt. Toxic opførsel, chikane, diskrimination eller hate speech tolereres ikke.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.2 Spam</strong><br>
+    Spam af beskeder, emojis, mentions eller billeder er ikke tilladt. Hold chatten ren og overskuelig.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.3 Reklamering</strong><br>
+    Reklamering for andre Discords, servers, hjemmesider eller sociale medier er strengt forbudt uden tilladelse fra ledelsen.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.4 Upassende Indhold</strong><br>
+    Deling af sexvideoer, sexvideo-relateret indhold, gore eller andet stødende materiale er ikke tilladt.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.5 Voice Chats</strong><br>
+    Micspam, soundboards, skrig eller høj musik som ødelægger oplevelsen for andre er ikke tilladt i voice chats.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.6 Brug af Tickets</strong><br>
+    Tickets må kun bruges til seriøse henvendelser. Misbrug af support-systemet kan føre til advarsler eller timeout.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.7 Ping Misbrug</strong><br>
+    Unødvendig ping af staff, everyone eller andre roller er ikke tilladt.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.8 Brugernavne & Profilbilleder</strong><br>
+    Upassende brugernavne, profiler eller statusser er ikke tilladt. Staff kan kræve ændringer uden varsel.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.9 Diskussion af Straffe</strong><br>
+    Diskussion omkring bans, warns eller staff-afgørelser skal foregå roligt gennem tickets — ikke i offentlige chats.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.10 Trusler</strong><br>
+    Trusler, doxxing eller deling af personlige oplysninger er strengt forbudt og kan føre til permanent udelukkelse.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.11 NSFW</strong><br>
+    NSFW indhold er ikke tilladt på Discorden, medmindre andet er angivet i specifikke kanaler.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.12 Staff Retningslinjer</strong><br>
+    Staffs ord er gældende. Manglende respekt overfor staff kan medføre timeout eller ban.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>2.13 Sund Fornuft</strong><br>
+    Brug altid din sunde fornuft. Ikke alle situationer kan dækkes af reglerne.</p>
+</div>
+                </div>
+            </div>
+
+            <div>
+                <div onclick="toggleAccordion(this)" class="accordion-header bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-2xl px-8 py-6 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center text-sm font-bold">§</div>
+                        <div><span class="text-xl font-semibold">Server Reler<span class="text-zinc-500 text-sm ml-2">· 15 Regler</span></div>
+                    </div>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </div>
+                <div class="accordion-content px-8 pt-2 pb-6 space-y-6 text-zinc-300">
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.1 Antal Medlemmer</strong><br>
+    Det er tilladt at have op til 15 medlemmer i en bande/familie. Alliancer der omgår medlemsgrænsen er ikke tilladt.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.2 RP i Konflikter</strong><br>
+    Alle konflikter mellem bander/familier skal indeholde seriøs og udviklende RP. Konflikter uden ordentlig RP kan føre til strikes eller lukning af banden.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.3 Krig</strong><br>
+    Ved længerevarende konflikter skal en af parterne oprette en ticket til staff. Først når staff har godkendt konflikten, kan der officielt erklæres krig.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.4 Strikes</strong><br>
+    Modtager en bande/familie 3 strikes, vil banden automatisk blive lukket af ledelsen.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.5 Cooldown</strong><br>
+    Forlader du en bande/familie, har du en cooldown på 3 dage før du kan joine en ny.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.6 Bandeuniformer</strong><br>
+    Bander/familier skal have tydeligt og realistisk outfit. Kopiering af andre banders outfits er ikke tilladt.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.7 Base RP</strong><br>
+    Angreb på bandebaser skal altid have gyldig RP baggrund. Random raids eller angreb uden RP er ikke tilladt.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.8 Kidnapning</strong><br>
+    Kidnapning skal udføres realistisk og med ordentlig RP. Masskidnapninger uden grund er ikke tilladt.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.9 Alliancer</strong><br>
+    Permanente alliancer mellem flere bander/familier er ikke tilladt, hvis det skaber unfair fordel.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.10 Kriminalitet</strong><br>
+    Al kriminalitet skal udføres med fokus på realistisk RP. Overdrevet eller urealistisk kriminalitet accepteres ikke.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.11 Korruption</strong><br>
+    Korrupt RP med sheriffer eller marshals må kun ske med tilladelse fra ledelsen.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.12 Safezones</strong><br>
+    Safezones som sheriffkontorer, hospitaler og togstationer skal respekteres. Kriminelle handlinger i disse områder er forbudt.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.13 Robberies</strong><br>
+    Robberies skal indeholde ordentlig RP og må ikke spammes. Der skal være passende cooldown mellem røverier.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.14 Heste & Køretøjer</strong><br>
+    Unrealistisk brug af heste, vogne eller andre køretøjer er ikke tilladt. FearRP gælder også under ridning og jagter.</p>
+</div>
+
+<div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-8">
+    <p><strong>3.15 Roleplay Kvalitet</strong><br>
+    Vi forventer høj kvalitet af RP på serveren. Troll, failRP eller manglende engagement kan føre til advarsler eller bans.</p>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOBS -->
+    <section id="jobs" class="py-20 bg-black/70 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-12">Jobs</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-6 card">
+                    <div class="text-4xl mb-4"></div>
+                    <h3 class="text-2xl font-bold">Sheriff</h3>
+                    <button onclick="showJobForm('Sheriff')" class="w-full mt-6 bg-blue-600 hover:bg-blue-700 py-3 rounded-2xl">Ansøg nu</button>
+                </div>
+                <div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-6 card">
+                    <div class="text-4xl mb-4"></div>
+                    <h3 class="text-2xl font-bold">Læge</h3>
+                    <button onclick="showJobForm('Læge')" class="w-full mt-6 bg-blue-600 hover:bg-blue-700 py-3 rounded-2xl">Ansøg nu</button>
+                </div>
+                <div class="bg-zinc-950/90 border border-zinc-700 rounded-3xl p-6 card">
+                    <div class="text-4xl mb-4"></div>
+                    <h3 class="text-2xl font-bold">Staff</h3>
+                    <button onclick="showJobForm('Staff')" class="w-full mt-6 bg-blue-600 hover:bg-blue-700 py-3 rounded-2xl">Ansøg nu</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOB MODAL -->
+    <div id="jobModal" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4">
+        <div class="bg-zinc-900 w-full max-w-2xl rounded-3xl max-h-[95vh] flex flex-col">
+            <div class="p-6 border-b border-zinc-700 flex justify-between items-center">
+                <h3 id="modalJobTitle" class="text-3xl font-bold"></h3>
+                <button onclick="closeModal()" class="text-4xl text-zinc-400 hover:text-white">×</button>
+            </div>
+            <div class="modal-body p-8 overflow-y-auto flex-1">
+                <form id="jobForm" class="space-y-6">
+                    <div id="dynamicFields"></div>
+                </form>
+            </div>
+            <div class="p-6 border-t border-zinc-700 flex gap-4">
+                <button onclick="closeModal()" class="flex-1 py-4 border border-zinc-700 rounded-2xl">Luk</button>
+                <button type="submit" form="jobForm" class="flex-1 py-4 bg-blue-600 hover:bg-blue-700 rounded-2xl font-semibold">Send Ansøgning</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // NY WEBHOOK URL
+        const WEBHOOK_URL = "https://discordapp.com/api/webhooks/1509188212864585840/_eJOg_2_hu3d8gbTeSV1JOStSzDfobRRC7C6YJOBuOLnoyIRtNjxdP-RbwgYU9tvpmGw";
+
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            content.classList.toggle('open');
+            icon.style.transform = content.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        let currentJob = '';
+
+        function showJobForm(job) {
+            currentJob = job;
+            document.getElementById('modalJobTitle').textContent = `Ansøgning - ${job}`;
+            const container = document.getElementById('dynamicFields');
+            container.innerHTML = '';
+
+            if (job === 'Sheriff') {
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvad hedder du IRL?</label><input id="irlName" type="text" class="w-full bg-zinc-950 border border-zinc-700 rounded-2xl px-6 py-4" required></div>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div><label class="block text-sm text-zinc-400 mb-2">Hvor gammel er du IRL?</label><input id="irlAge" type="number" class="w-full bg-zinc-950 border border-zinc-700 rounded-2xl px-6 py-4" required></div>
+                            <div><label class="block text-sm text-zinc-400 mb-2">Hvad hedder du i spillet?</label><input id="ingameName" type="text" class="w-full bg-zinc-950 border border-zinc-700 rounded-2xl px-6 py-4" required></div>
+                        </div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvor gammel er du i spillet?</label><input id="ingameAge" type="number" class="w-full bg-zinc-950 border border-zinc-700 rounded-2xl px-6 py-4" required></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvorfor vil du være seheriff? (100+ ord)</label><textarea id="whyPolice" rows="6" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Har du tidligere erfaring som politi?</label><textarea id="policeExp" rows="4" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvad er dine styrker og svagheder?</label><textarea id="strengths" rows="4" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Har du forståelse for Sheriffens Korps regler og procedurer?</label><textarea id="rulesKnowledge" rows="4" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Andet vi skal vide om dig?</label><textarea id="otherInfo" rows="4" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4"></textarea></div>
+                        <p class="text-red-400 text-sm font-medium">Din ansøgning vil blive tjekket hurtigts muligt!</p>
+                    </div>
+                `;
+            } else if (job === 'Læge') {
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <div><label class="block text-sm text-zinc-400 mb-2">Discord navn</label><input id="discord" type="text" class="w-full bg-zinc-950 border border-zinc-700 rounded-2xl px-6 py-4" required></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Navn IRL</label><input id="irlName" type="text" class="w-full bg-zinc-950 border border-zinc-700 rounded-2xl px-6 py-4" required></div>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div><label class="block text-sm text-zinc-400 mb-2">Alder IRL</label><input id="irlAge" type="number" class="w-full bg-zinc-950 border border-zinc-700 rounded-2xl px-6 py-4" required></div>
+                            <div><label class="block text-sm text-zinc-400 mb-2">In-Game navn RP</label><input id="ingameName" type="text" class="w-full bg-zinc-950 border border-zinc-700 rounded-2xl px-6 py-4" required></div>
+                        </div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Alder på karakteren</label><input id="ingameAge" type="number" class="w-full bg-zinc-950 border border-zinc-700 rounded-2xl px-6 py-4" required></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvorfor vil du gerne være læge på denne server? (75+ ord)</label><textarea id="whyDoctor" rows="5" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Har du erfaring som læge fra andre servere?</label><textarea id="expDoctor" rows="3" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvordan håndterer du stressende eller hektiske situationer i RP? (50+ ord)</label><textarea id="stress" rows="4" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvordan vil du beskrive din RP-stil?</label><textarea id="rpStyle" rows="3" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvordan vil du samarbejde med andre fraktioner?</label><textarea id="collaboration" rows="3" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvor aktiv forventer du at være på serveren som EMS?</label><textarea id="activity" rows="3" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvad gør en god Læge efter din mening?</label><textarea id="goodDoctor" rows="3" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Har du noget, du gerne vil tilføje?</label><textarea id="extra" rows="3" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4"></textarea></div>
+                        <p class="text-red-400 text-sm font-medium">Din ansøgning vil blive tjekket hurtigts muligt!</p>
+                    </div>
+                `;
+            } else if (job === 'Staff') {
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <div><label class="block text-sm text-zinc-400 mb-2">Discord navn</label><input id="discord" type="text" class="w-full bg-zinc-950 border border-zinc-700 rounded-2xl px-6 py-4" required></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">IRL-Alder</label><input id="irlAge" type="number" class="w-full bg-zinc-950 border border-zinc-700 rounded-2xl px-6 py-4" required></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Erfaring?</label><textarea id="experience" rows="4" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Forklar om dig selv?</label><textarea id="aboutYou" rows="5" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvor aktiv kan du være?</label><textarea id="activity" rows="3" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <div><label class="block text-sm text-zinc-400 mb-2">Hvorfor vil du gerne være staff? Hvad kan du tilbyde?</label><textarea id="whyStaff" rows="7" class="w-full bg-zinc-950 border border-zinc-700 rounded-3xl px-6 py-4" required></textarea></div>
+                        <p class="text-red-400 text-sm font-medium">Din ansøgning vil blive tjekket hurtigts muligt!</p>
+                    </div>
+                `;
+            }
+
+            document.getElementById('jobModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('jobModal').classList.add('hidden');
+        }
+
+        // Send til Discord
+        document.getElementById('jobForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const fields = [];
+            const inputs = document.querySelectorAll('#dynamicFields input, #dynamicFields textarea');
+            inputs.forEach(input => {
+                if (input.id) {
+                    const label = input.previousElementSibling ? input.previousElementSibling.textContent.replace('?', '').trim() : input.id;
+                    fields.push({ name: label, value: input.value || "Ikke udfyldt" });
+                }
+            });
+
+            const embed = {
+                title: `Ny ${currentJob} Ansøgning Ankommet`,
+                color: 3447003,
+                fields: fields,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ embeds: [embed] })
+                });
+                alert('Ansøgning til behandling!');
+                closeModal();
+            } catch (err) {
+                console.error(err);
+                alert('Vi møder fejl ved afsendelsen til discord, prøv igen senere!');
+            }
+        });
+    </script>
+</body>
+</html>
